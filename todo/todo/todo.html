@@ -1,7 +1,7 @@
 <h1 class='text-center'>Todo list</h1>
 <form ng-submit='vm.addTask(vm.newTask, vm.dueTime)' name='todoForm'>
 	<div class='form-group'>
-		<label>What do you want to do?</label>
+		<label>What do you need to do?</label>
 		<input type='text' class='form-control' name='newTask' ng-model='vm.newTask' required>
 	</div>
 	<div class='form-group'>
@@ -14,13 +14,13 @@
 	<h2 class='text-center'>Tasks to do</h2>
 	<div ng-repeat='task in vm.tasks'>
 		<div class='row'>
-			<div class='col-sm-1'>
-				<button class='btn btn-warning btn-sm' ng-click='vm.editTask(task)'>Edit</button>
-			</div>
 			<div class='col-sm-2'>
 				<button class='btn btn-success btn-sm' ng-click='vm.completeTask(task)'>Complete</button>
 			</div>
-			<div class='col-sm-6'>
+			<div class='col-sm-2'>
+				<button class='btn btn-warning btn-sm' ng-click='vm.editTask(task)'>Edit</button>
+			</div>
+			<div class='col-sm-5'>
 				<span class='glyphicon glyphicon-remove'></span> {{task.task}}
 			</div>
 			<div class='col-sm-3'>
