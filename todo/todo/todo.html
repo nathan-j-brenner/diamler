@@ -1,21 +1,44 @@
+<h1 class="text-center">Todo list</h1>
 <form ng-submit="vm.addTask(vm.newTask)" name="todoForm">
-	<label>What do you want to do?</label>
-	<input type="text" name="newTask" ng-model="vm.newTask" required>
+	<div class="form-group">
+		<label>What do you want to do?</label>
+		<input type="text" class="form-control" name="newTask" ng-model="vm.newTask" required>
+	</div>
+	<div class="form-group">
+		<label>What time do you need to get this done by?</label>
+ 		<uib-timepicker ng-model="vm.dueTime" ng-change="vm.changed()" hour-step="vm.hstep" minute-step="vm.mstep" show-meridian="vm.isMeridian"></uib-timepicker>
+	</div>
 	<button class="btn btn-primary">Add</button>
 </form>
 <div ng-hide="vm.tasks.length == 0">
-	<h2>Tasks to do </h2>
-	<ul>
-		<li ng-repeat="task in vm.tasks">
-			{{task}} 
-			<button class="btn btn-warning btn-sm" ng-click="vm.editTask(task)">Edit</button>
-			<button class="btn btn-success btn-sm" ng-click="vm.completeTask(task)">Complete</li>
-	</ul>
+	<h2 class="text-center">Tasks to do</h2>
+	<!--<ul>
+		<li ng-repeat="task in vm.tasks">-->
+		<div ng-repeat="task in vm.tasks">
+			<div class="row">
+				<div class="col-sm-1"> 
+					<button class="btn btn-warning btn-sm" ng-click="vm.editTask(task)">Edit</button>
+				</div>
+				<div class="col-sm-2">
+					<button class="btn btn-success btn-sm" ng-click="vm.completeTask(task)">Complete</button>
+				</div>
+				<div class="col-sm-6">
+					<span class="glyphicon glyphicon-remove"></span> {{task}}
+				</div>
+				<div class="col-sm-2">
+					{{vm.dueTime | date:'shortTime' }}
+				</div>
+			</div>
+			<br />
+		</div>
+
+		<!--</li>
+	</ul>-->
 </div>
 <div ng-hide="vm.completedTasks.length == 0">
-	<h2>Tasks completed</h2>
-	<ul>
-		<li ng-repeat = "task in vm.completedTasks">{{task}}</li>
-	</ul>
+	<h2 class="text-center">Tasks completed</h2>
+		<div ng-repeat = "task in vm.completedTasks">
+			<span class="glyphicon glyphicon-ok"></span> {{task}}
+		</div>
 </div>
 

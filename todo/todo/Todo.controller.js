@@ -6,6 +6,13 @@ function TodoCtlr(){
 	vm.completedTasks=[];
 	vm.tasks = [];
 
+	// time picker
+	vm.dueTime = new Date();
+	vm.hstep = 1;
+	vm.mstep = 15;
+	vm.isMeridian = true;
+	vm.toggleMeridian = toggleMeridian;
+
 	vm.addTask = addTask;
 	vm.completeTask = completeTask;
 	vm.editTask = editTask;
@@ -30,5 +37,9 @@ function TodoCtlr(){
 		var task = vm.tasks.indexOf(task);
 		console.log(task);
 		vm.tasks.splice(task, 1);
+	}
+
+	function toggleMeridian() {
+		vm.isMeridian = !vm.isMeridian;
 	}
 }
