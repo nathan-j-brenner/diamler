@@ -1,3 +1,6 @@
+(function(){
+	'use strict';
+
 angular.module('app', ['ui.router', 'ngAnimate', 'ui.bootstrap']).config(function($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('/');
 
@@ -7,3 +10,5 @@ angular.module('app', ['ui.router', 'ngAnimate', 'ui.bootstrap']).config(functio
 		controller: 'TodoCtrl as vm'
 	});
 });
+
+})();

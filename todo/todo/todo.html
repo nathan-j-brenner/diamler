@@ -6,7 +6,7 @@
 	</div>
 	<div class="form-group">
 		<label>What time do you need to get this done by?</label>
- 		<uib-timepicker ng-model="vm.dueTime" ng-change="vm.changed()" hour-step="vm.hstep" minute-step="vm.mstep" show-meridian="vm.isMeridian"></uib-timepicker>
+ 		<uib-timepicker ng-model="vm.dueTime" ng-change="vm.changed()" hour-step="vm.hstep" minute-step="vm.mstep" show-meridian="vm.isMeridian" min="vm.now"></uib-timepicker>
 	</div>
 	<button class="btn btn-primary">Add</button>
 </form>

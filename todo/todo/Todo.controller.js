@@ -1,3 +1,6 @@
+(function(){
+	'use strict';
+
 angular.module('app').controller('TodoCtrl', TodoCtlr);
 
 function TodoCtlr(){
@@ -8,11 +11,13 @@ function TodoCtlr(){
 
 	// time picker
 	vm.dueTime = new Date();
+	vm.now = new Date();
 	vm.hstep = 1;
 	vm.mstep = 15;
 	vm.isMeridian = true;
 	vm.toggleMeridian = toggleMeridian;
 
+	// todo functions
 	vm.addTask = addTask;
 	vm.completeTask = completeTask;
 	vm.editTask = editTask;
@@ -43,3 +48,5 @@ function TodoCtlr(){
 		vm.isMeridian = !vm.isMeridian;
 	}
 }
+
+})();
