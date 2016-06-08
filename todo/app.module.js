@@ -1,4 +1,3 @@
-console.log('test from app.module.js');
 angular.module('app', ['ui.router']).config(function($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('/');
 

@@ -1,9 +1,10 @@
 <form ng-submit="vm.addTask(vm.newTask)" name="todoForm">
+	<label>What do you want to do?</label>
 	<input type="text" name="newTask" ng-model="vm.newTask" required>
 	<button class="btn btn-primary">Add</button>
 </form>
 <div ng-hide="vm.tasks.length == 0">
-	<h2>Tasks todo {{vm.tasks.length}}</h2>
+	<h2>Tasks to do </h2>
 	<ul>
 		<li ng-repeat="task in vm.tasks">
 			{{task}} 

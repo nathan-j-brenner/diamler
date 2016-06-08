@@ -1,6 +1,6 @@
-angular.module('app').controller('TodoCtrl', Todo);
+angular.module('app').controller('TodoCtrl', TodoCtlr);
 
-function Todo(){
+function TodoCtlr(){
 	var vm = this;
 
 	vm.completedTasks=[];
