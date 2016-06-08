@@ -1,17 +1,20 @@
-<form ng-submit="vm.add(vm.newTask)" name="todoForm">
-	<input type="text" name="newTask" ng-model="vm.newTask">
-	<button class="btn btn-success">Add</button>
+<form ng-submit="vm.addTask(vm.newTask)" name="todoForm">
+	<input type="text" name="newTask" ng-model="vm.newTask" required>
+	<button class="btn btn-primary">Add</button>
 </form>
-<div>
-	<h2>Todos</h2>
+<div ng-hide="vm.tasks.length == 0">
+	<h2>Tasks todo {{vm.tasks.length}}</h2>
 	<ul>
-		<li ng-repeat="task in vm.list">{{task}} <button class="btn" ng-click="vm.edit(task)">Edit</button><button class="btn" ng-click="vm.complete(task)">Complete</li>
+		<li ng-repeat="task in vm.tasks">
+			{{task}} 
+			<button class="btn btn-warning btn-sm" ng-click="vm.editTask(task)">Edit</button>
+			<button class="btn btn-success btn-sm" ng-click="vm.completeTask(task)">Complete</li>
 	</ul>
 </div>
-<div>
+<div ng-hide="vm.completedTasks.length == 0">
 	<h2>Tasks completed</h2>
 	<ul>
-		<li ng-repeat = "task in vm.completed">{{task}}</li>
+		<li ng-repeat = "task in vm.completedTasks">{{task}}</li>
 	</ul>
 </div>
 

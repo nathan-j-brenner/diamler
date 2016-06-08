@@ -1,9 +1,9 @@
 console.log('test from app.module.js');
 angular.module('app', ['ui.router']).config(function($stateProvider, $urlRouterProvider){
-	$urlRouterProvider.otherwise('/todo');
+	$urlRouterProvider.otherwise('/');
 
 	$stateProvider.state('todo', {
-		url: '/todo',
+		url: '/',
 		templateUrl: 'todo/todo.html',
 		controller: 'TodoCtrl as vm'
 	});
