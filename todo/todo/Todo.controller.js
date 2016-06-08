@@ -22,26 +22,30 @@ function TodoCtlr(){
 	vm.completeTask = completeTask;
 	vm.editTask = editTask;
 	
-	function addTask (task) {
+	function addTask (task, time) {
 		if (vm.tasks.indexOf(task)!= -1){
-			alert("That task is already on the list");
+			alert('That task is already on the list');
 		} else{
-			vm.tasks.push(task);
+			vm.tasks.push({
+				'task': task,
+				'dueTime': time
+			});
 			vm.newTask = '';
+			vm.dueTime = new Date();
 		}
 	}
 
 	function completeTask (task) {
 		vm.completedTasks.push(task);
-		var task = vm.tasks.indexOf(task);
-		vm.tasks.splice(task, 1);
+		var taskIndex = vm.tasks.indexOf(task);
+		vm.tasks.splice(taskIndex, 1);
 	}
 
 	function editTask (task) {
-		vm.newTask = task;
-		var task = vm.tasks.indexOf(task);
-		console.log(task);
-		vm.tasks.splice(task, 1);
+		vm.newTask = task.task;
+		vm.dueTime = task.dueTime;
+		var taskIndex = vm.tasks.indexOf(task);
+		vm.tasks.splice(taskIndex, 1);
 	}
 
 	function toggleMeridian() {
