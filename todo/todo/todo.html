@@ -10,11 +10,6 @@
 	</div>
 	<button class='btn btn-primary'>Add</button>
 </form>
-  <label>Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /></label><br/>
-Show when checked:
-<span ng-if="checked" class="animate-if">
-  This is removed when the checkbox is unchecked.
-</span>
 <div ng-hide='vm.tasks.length == 0'>
 	<h2 class='text-center'>Tasks to do</h2>
 	<div ng-repeat='task in vm.tasks'>
