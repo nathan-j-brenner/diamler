@@ -10,6 +10,11 @@
 	</div>
 	<button class='btn btn-primary'>Add</button>
 </form>
+  <label>Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /></label><br/>
+Show when checked:
+<span ng-if="checked" class="animate-if">
+  This is removed when the checkbox is unchecked.
+</span>
 <div ng-hide='vm.tasks.length == 0'>
 	<h2 class='text-center'>Tasks to do</h2>
 	<div ng-repeat='task in vm.tasks'>
@@ -18,10 +23,17 @@
 				<button class='btn btn-success btn-sm' ng-click='vm.completeTask(task)'>Complete</button>
 			</div>
 			<div class='col-sm-2'>
-				<button class='btn btn-warning btn-sm' ng-click='vm.editTask(task)'>Edit</button>
+				<!--
+				Not sure what I like more.
+				If line 27 is active, with a button click, the task is popped from the tasks array and moved back into the form
+				If line 28 is active, If the checkbox is checked, you can edit the task as it is in the tasks array
+				-->
+				<!--<button class='btn btn-warning btn-sm' ng-click='vm.editTask(task)'>Edit</button>-->
+				<label>Edit <input type="checkbox" ng-model="checked" ng-init="checked=false" /></label>
 			</div>
 			<div class='col-sm-5'>
-				<span class='glyphicon glyphicon-remove'></span> {{task.task}}
+				<p ng-if="!checked"><span class='glyphicon glyphicon-remove'></span> {{task.task}}</p>
+				<input type="text" ng-if="checked" class="animate-if" ng-model="task.task"/>
 			</div>
 			<div class='col-sm-3'>
 				Due by: {{task.dueTime | date:'shortTime' }}
